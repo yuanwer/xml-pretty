@@ -20,6 +20,7 @@
   "dependencies": {
     "monaco-editor": "^0.38.0",
     "monaco-editor-core": "^0.38.0",
+    "vkbeautify": "^0.99.3",
     "xml-formatter": "^3.3.2"
   }
 }
