@@ -1,0 +1,36 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-size: 16px;
+}
+
+.c-button {
+  margin-left: 15px;
+  padding: 8px 16px;
+  cursor: pointer;
+  background-color: #fff;
+  border: 1px solid #dcdfe6;
+  border-radius: 4px;
+  color: #000;
+  font-size: 16px;
+  transition: box-shadow 0.15s;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &.link-button {
+    background: none;
+    border: none;
+    color: #409eff;
+
+    &:hover {
+      box-shadow: 0 0 2px 1px #409eff inset;
+    }
+  }
+}
