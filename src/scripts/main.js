@@ -30,7 +30,10 @@ function compressXml(originalText) {
 
 const $formatBtn = document.getElementById('formatBtn')
 $formatBtn.addEventListener('click', () => {
-  const originalText = editor.getValue()
+  const originalText = editor.getValue().trim()
+  if (!originalText) {
+    return
+  }
   editor.setValue(formatXml(originalText))
 })
 
