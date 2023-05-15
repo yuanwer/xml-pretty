@@ -23,13 +23,17 @@ const formatXml = () => {
       collapseContent: true, // 将只包含文本的元素折叠成一行
     })
     editor.setValue(formattedText)
-  } catch (error) {}
+  } catch (error) {
+    console.log('error', error)
+  }
 }
 
 const $formatBtn = document.getElementById('formatBtn')
 $formatBtn.addEventListener('click', formatXml)
 
-const $settingBtn = document.getElementById('settingBtn')
-$settingBtn.addEventListener('click', openSettings)
+const $githubBtn = document.getElementById('githubBtn')
+$githubBtn.addEventListener('click', openGithub)
 
-function openSettings() {}
+function openGithub() {
+  window.open('https://github.com/yuanwer/xml-pretty')
+}

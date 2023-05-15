@@ -4,7 +4,8 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "dev": "npx parcel src/index.html",
+    "dev": "parcel src/index.html --no-cache",
+    "build ": "parcel build --public-url /xml-pretty/ src/index.html --no-cache",
     "prettier": "prettier --write src/"
   },
   "keywords": [],
