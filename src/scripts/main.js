@@ -12,10 +12,6 @@ function formatXml(originalText) {
   return vkbeautify.xml(xmlStr)
 }
 
-function openGithub() {
-  window.open('https://github.com/yuanwer/xml-pretty')
-}
-
 /**
  * 压缩XML
  * @param {string} originalText
@@ -53,8 +49,6 @@ $formatBtn.addEventListener('click', () => {
   setLocalInput(formatValue)
 })
 
-const $githubBtn = document.getElementById('githubBtn')
-$githubBtn.addEventListener('click', openGithub)
 
 const $compressBtn = document.getElementById('compressBtn')
 $compressBtn.addEventListener('click', () => {
