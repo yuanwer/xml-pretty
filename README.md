@@ -26,6 +26,10 @@ https://yuanwer.github.io/xml-pretty/
 
 prettier 是一个广为人知的代码格式化工具，使用非常方便。目前为止，它没有出现什么问题。
 
+**www.flaticon.com**
+
+一个免费的图标网站，项目中的 icon 都来自这里，比如网站的[favicon 图标](https://www.flaticon.com/free-icon/chick_2632839?term=cute&page=1&position=1&origin=search&related_id=2632839)
+
 ## 最后
 
 XML 的使用场景越来越少了，如果你碰巧在用 XML，希望此工具能够让你的工作顺心一些。
