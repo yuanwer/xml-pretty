@@ -1,4 +1,5 @@
 import * as monaco from 'monaco-editor'
+// 用于格式化XML
 import vkbeautify from 'vkbeautify'
 // 加载 XML 语言支持
 import 'monaco-editor/esm/vs/basic-languages/xml/xml.contribution.js'
@@ -15,10 +16,16 @@ function openGithub() {
   window.open('https://github.com/yuanwer/xml-pretty')
 }
 
+/**
+ * 压缩XML
+ * @param {string} originalText
+ * @return {string} compressXmlText
+ */
 function compressXml(originalText) {
   return originalText
 }
 
+// 获取本地输入内容，也就是最近一次用户输入的内容
 const localInput = getLocalInput()
 
 // 创建编辑器实例
@@ -29,6 +36,7 @@ const editor = monaco.editor.create(document.getElementById('editor'), {
   fontSize: 18,
 })
 
+// 每次用户输入时，都会往本地存储内容，确保记录是最新的
 editor.onDidChangeModelContent(function () {
   const originalText = editor.getValue().trim()
   setLocalInput(originalText)
