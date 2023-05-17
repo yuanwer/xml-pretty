@@ -1,36 +1,8 @@
 import * as monaco from 'monaco-editor'
-// 用于格式化XML
-import vkbeautify from 'vkbeautify'
 // 加载 XML 语言支持
 import 'monaco-editor/esm/vs/basic-languages/xml/xml.contribution.js'
-import { getLocalInput, setLocalInput } from '../utils/getLocalSettings.js'
-
-// 格式化 XML
-function formatXml(originalText) {
-  const xmlDoc = new DOMParser().parseFromString(fixXMLString(originalText), 'text/xml')
-  const xmlStr = new XMLSerializer().serializeToString(xmlDoc)
-  return vkbeautify.xml(xmlStr)
-}
-
-function fixXMLString(xmlString) {
-  // 修正属性值没有用引号包裹的情况
-  xmlString = xmlString.replace(/=\s*([^'"][^\s>]+)/g, '="$1"');
-
-  // 修正标签没有闭合的情况
-  xmlString = xmlString.replace(/<([^\s>]+)([^>]*)\/>/g, '<$1$2></$1>');
-
-  return xmlString;
-}
-
-
-/**
- * 压缩XML
- * @param {string} originalText
- * @return {string} compressXmlText
- */
-function compressXml(originalText) {
-  return originalText
-}
+import { getLocalInput, setLocalInput } from '~/src/utils/getLocalSettings.js'
+import { compressXml, formatXml } from '~/src/utils/xml.js'
 
 // 获取本地输入内容，也就是最近一次用户输入的内容
 const localInput = getLocalInput()
@@ -49,20 +21,22 @@ editor.onDidChangeModelContent(function () {
   setLocalInput(originalText)
 })
 
+// 用户点击格式化
 const $formatBtn = document.getElementById('formatBtn')
 $formatBtn.addEventListener('click', () => {
   const originalText = editor.getValue().trim()
   if (!originalText) {
     return
   }
-  const formatValue = formatXml(originalText)
-  editor.setValue(formatValue)
-  setLocalInput(formatValue)
+  editor.setValue(formatXml(originalText))
 })
 
-
+// 用户点击压缩
 const $compressBtn = document.getElementById('compressBtn')
 $compressBtn.addEventListener('click', () => {
-  const originalText = editor.getValue()
+  const originalText = editor.getValue().trim()
+  if (!originalText) {
+    return
+  }
   editor.setValue(compressXml(originalText))
 })
