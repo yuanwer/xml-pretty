@@ -7,10 +7,21 @@ import { getLocalInput, setLocalInput } from '../utils/getLocalSettings.js'
 
 // 格式化 XML
 function formatXml(originalText) {
-  const xmlDoc = new DOMParser().parseFromString(originalText, 'text/xml')
+  const xmlDoc = new DOMParser().parseFromString(fixXMLString(originalText), 'text/xml')
   const xmlStr = new XMLSerializer().serializeToString(xmlDoc)
   return vkbeautify.xml(xmlStr)
 }
+
+function fixXMLString(xmlString) {
+  // 修正属性值没有用引号包裹的情况
+  xmlString = xmlString.replace(/=\s*([^'"][^\s>]+)/g, '="$1"');
+
+  // 修正标签没有闭合的情况
+  xmlString = xmlString.replace(/<([^\s>]+)([^>]*)\/>/g, '<$1$2></$1>');
+
+  return xmlString;
+}
+
 
 /**
  * 压缩XML
