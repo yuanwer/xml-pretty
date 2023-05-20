@@ -1,46 +1,29 @@
 # xml-pretty
 
-This template should help get you started developing with Vue 3 in Vite.
+## 简介
 
-## Recommended IDE Setup
+这是一个 web 端的 xml 美化展示工具。
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+我有个朋友，入职了一家公司，前后端通过 xml 来交换数据，偶然的机会，我帮助他调试代码，我发现他们所使用的其他 xml 美化展示工具都有各自的缺陷 😂...
 
-## Type Support for `.vue` Imports in TS
+于是，我决定开发一个集各家之长的工具 ✊，这就是 XML-Pretty 的诞生。
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+## 功能
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+我希望 XML-Pretty 专注于 XML 美化的功能，避免添加过多与此无关的功能，以保持工具的精简和易用性。
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+### 已有的功能
 
-## Customize configuration
+现在，你可以使用以下功能，只要你的 XML 格式是正确的 ✔，XML-Pretty 会为你提供满意的效果。
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+1. xml 格式化，这是最基本的
+2. xml 压缩，去除多余的换行和空白
+3. 内容记忆，当你下次打开 xml pretty，会回显你最后一次输入的 xml 内容
 
-## Project Setup
+## 最后
 
-```sh
-npm install
-```
+在现代开发中，XML 的应用场景越来越少，除了一些特殊场景，我周围的开发人员几乎不再选择使用 XML 进行数据交换和保存。
 
-### Compile and Hot-Reload for Development
+如果你恰好在使用 XML，希望 XML-Pretty 能为你提供更顺畅的体验。
 
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+祝你好运 🎉！
