@@ -3,7 +3,7 @@ import * as monaco from 'monaco-editor'
 // 加载 XML 语言支持
 import 'monaco-editor/esm/vs/basic-languages/xml/xml.contribution.js'
 import { getLocalInput, setLocalInput } from '@/utils/getLocalSettings.js'
-import { onMounted, ref } from 'vue'
+import { onMounted } from 'vue'
 import { compressXml, formatXml } from '@/utils/xml.js'
 
 // 获取本地输入内容，也就是最近一次用户输入的内容
@@ -80,7 +80,7 @@ function jumpToGitHubPage() {
     display: flex;
     align-items: center;
     padding: 10px 20px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
     .logo {
       margin-right: 30px;
       display: flex;
@@ -107,7 +107,6 @@ function jumpToGitHubPage() {
   }
 
   main {
-    padding-top: 15px;
     flex: 1;
     display: flex;
     #editor {

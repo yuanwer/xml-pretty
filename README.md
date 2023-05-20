@@ -42,3 +42,9 @@
 如果你恰好在使用 XML，希望 XML-Pretty 能为你提供更顺畅的体验。
 
 祝你好运 🎉！
+
+## 归属链接
+
+项目中引用了一些其他网站的资源，比如 logo 上的小鸡 🐥，这里会标注它们的来源。
+
+logo 和 favicon icon：https://www.flaticon.com/free-icon/chick_2632839?term=cute&page=1&position=1&origin=tag&related_id=2632839

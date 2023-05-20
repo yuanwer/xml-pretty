@@ -40,3 +40,9 @@ In modern development, the use of XML is becoming less common. Except for some s
 If you happen to be working with XML, I hope XML-Pretty can provide you with a smoother experience.
 
 Best of luck! 🎉
+
+## attribution link
+
+Some resources from other sites are referenced in the project, such as the chicks on the logo 🐥, and their sources are marked here.
+
+logo and favicon icon：https://www.flaticon.com/free-icon/chick_2632839?term=cute&page=1&position=1&origin=tag&related_id=2632839
