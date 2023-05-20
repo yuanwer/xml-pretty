@@ -1,0 +1,48 @@
+@import '@/styles/element.less';
+// 鼠标手性
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.cursor-default {
+  cursor: default;
+}
+
+// 鼠标禁用
+.cursor-disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+// 文字选择
+.user-select-auto {
+  user-select: auto;
+}
+
+.user-select-none {
+  user-select: none;
+}
+
+// 清除浮动
+.clearfix::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+// 隐藏元素
+.hidden {
+  display: none !important;
+}
+
+// 显示元素
+.visible {
+  display: block !important;
+}
+
+// 文本截断
+.text-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -1,39 +1,46 @@
-# XML Pretty
+# xml-pretty
 
-https://yuanwer.github.io/xml-pretty/
+This template should help get you started developing with Vue 3 in Vite.
 
-## 简介
+## Recommended IDE Setup
 
-这是一个在线的 XML 格式化展示工具，旨在帮助开发者更方便地查看和处理 XML 数据。该工具的背景是我的一个朋友最近入职了一家公司，他们通过传输 XML 与后端交互。他经常需要将 XML 粘贴到其他 XML 格式化工具上进行查看和调试。然而，他发现使用现有的工具存在诸多问题，使用起来并不是很顺手。因此，我制作了这个工具。
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-## 用到的技术
+## Type Support for `.vue` Imports in TS
 
-这个工具使用了几种技术：
+TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
 
-**parcel**
+If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
 
-这是一个配置简单的打包工具，上手很快。尽管在使用过程中出现了一些问题（如默认情况下过于依赖缓存，导致打包的代码不是最新的代码），但总的来说，它对于快速构建项目仍然是一个非常实用的工具。
+1. Disable the built-in TypeScript Extension
+    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
+    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
+2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
 
-**monaco-editor**
+## Customize configuration
 
-这个工具使用了 vscode 所用的编辑器——monaco-editor。通过很少的代码，就可以实现一个完整的代码编辑器。这个工具是非常强大和灵活的，可以轻松地集成到各种应用程序中。
+See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-**vkbeautify**
+## Project Setup
 
-我使用 vkbeautify 来格式化 XML 数据。它是一个非常方便的工具，能够让 XML 的格式化变得轻而易举。不过，它有一些忽略了我认为应该格式化的地方，这是它的一个不足之处。后续我可能会单独写一个格式化的方法来替代它。
+```sh
+npm install
+```
 
-**prettier**
+### Compile and Hot-Reload for Development
 
-prettier 是一个广为人知的代码格式化工具，使用非常方便。目前为止，它没有出现什么问题。
+```sh
+npm run dev
+```
 
-**www.flaticon.com**
+### Type-Check, Compile and Minify for Production
 
-一个免费的图标网站，项目中的 icon 都来自这里，比如网站的[favicon 图标](https://www.flaticon.com/free-icon/chick_2632839?term=cute&page=1&position=1&origin=search&related_id=2632839)
+```sh
+npm run build
+```
 
-## 最后
+### Lint with [ESLint](https://eslint.org/)
 
-XML 的使用场景越来越少了，如果你碰巧在用 XML，希望此工具能够让你的工作顺心一些。
-
-如果你发现此工具有任何问题，可以提交到 issues，我会积极修复。
-
-祝你好运 🎉！
+```sh
+npm run lint
+```

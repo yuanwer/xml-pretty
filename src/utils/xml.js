@@ -6,10 +6,7 @@ import vkbeautify from 'vkbeautify'
  * @returns {string} 预格式化后的xml字符串
  */
 export function preFormat(originalText) {
-  const xmlDoc = new DOMParser().parseFromString(
-    fixXMLString(originalText),
-    'text/xml'
-  )
+  const xmlDoc = new DOMParser().parseFromString(fixXMLString(originalText), 'text/xml')
   return new XMLSerializer().serializeToString(xmlDoc)
 }
 

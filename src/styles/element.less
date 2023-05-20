@@ -1,5 +1,6 @@
 html,
-body {
+body,
+#app {
   width: 100vw;
   height: 100vh;
 }
@@ -19,24 +20,26 @@ body {
   color: #000;
   font-size: 16px;
   transition: box-shadow 0.15s;
+  user-select: none;
 
   &:first-child {
     margin-left: 0;
   }
 
-  &.link-button {
-    background: none;
-    border: none;
-    color: #409eff;
-
-    &:not([disabled]):hover {
-      box-shadow: 0 0 2px 1px #409eff inset;
+  &:not([disabled]) {
+    &:hover {
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     }
 
-    &[disabled] {
-      opacity: 0.8;
-      cursor: no-drop;
+    &:active {
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px inset,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px inset;
+      transform: translate(0, 1px);
     }
+  }
+
+  &[disabled] {
+    cursor: no-drop;
   }
 }
 
