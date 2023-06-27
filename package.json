@@ -12,12 +12,12 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "pinia": "^2.0.36",
-    "vue": "^3.3.2",
-    "vue-router": "^4.2.0",
-    "monaco-editor": "^0.38.0",
+    "monaco-editor": "^0.39.0",
     "monaco-editor-core": "^0.38.0",
-    "vkbeautify": "^0.99.3"
+    "pinia": "^2.0.36",
+    "vkbeautify": "^0.99.3",
+    "vue": "^3.3.2",
+    "vue-router": "^4.2.0"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.2.0",

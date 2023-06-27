@@ -3,12 +3,13 @@ import * as monaco from 'monaco-editor'
 // 加载 XML 语言支持
 import 'monaco-editor/esm/vs/basic-languages/xml/xml.contribution.js'
 import { getLocalInput, setLocalInput } from '@/utils/getLocalSettings.js'
-import { onMounted } from 'vue'
+import { onMounted, Ref, ref } from 'vue'
 import { compressXml, formatXml } from '@/utils/xml.js'
 
 // 获取本地输入内容，也就是最近一次用户输入的内容
 const localInput = getLocalInput()
 let editor = null
+const fileInputRef: Ref<HTMLInputElement | null> = ref(null)
 
 onMounted(() => {
   // 创建编辑器实例
@@ -31,7 +32,31 @@ function handleFormat() {
   if (!originalText) {
     return
   }
-  editor.setValue(formatXml(originalText))
+  setEditorContent(editor, formatXml(originalText), 1)
+}
+function setEditorContent(
+  editor: monaco.editor.IStandaloneCodeEditor,
+  content: string,
+  lineNumber: number
+) {
+  const lineCount = editor.getModel()?.getLineCount() || 1
+
+  // 检查行号是否有效
+  if (lineNumber < 1 || lineNumber > lineCount) {
+    console.error('Invalid lineNumber:', lineNumber)
+    return
+  }
+
+  try {
+    // 设置内容
+    editor.setValue(content)
+
+    // 定位到指定行号
+    editor.revealLineInCenter(lineNumber)
+    editor.setPosition({ lineNumber, column: 1 })
+  } catch (e) {
+    console.error('设置编辑器内容出错了: ', e)
+  }
 }
 
 function handleCompress() {
@@ -39,7 +64,41 @@ function handleCompress() {
   if (!originalText) {
     return
   }
-  editor.setValue(compressXml(originalText))
+  setEditorContent(editor, compressXml(originalText), 1)
+}
+
+function handleOpenFile() {
+  fileInputRef.value?.click()
+}
+
+function handleFileChange(event: Event) {
+  const fileList = (event.target as HTMLInputElement).files
+
+  if (fileList.length === 0) {
+    console.log('没有选择文件')
+    return
+  }
+
+  const file = fileList[0]
+
+  if (!file.type.match('xml.*')) {
+    alert('请选择XML文件')
+    return
+  }
+
+  const reader = new FileReader()
+
+  reader.onload = function (event) {
+    const xmlContent = event.target.result
+    setEditorContent(editor, xmlContent, 1)
+    if (fileInputRef.value) {
+      fileInputRef.value.value = ''
+    }
+
+    // 在这里可以对XML内容进行进一步处理
+  }
+
+  reader.readAsText(file)
 }
 
 function jumpToGitHubPage() {
@@ -57,6 +116,7 @@ function jumpToGitHubPage() {
       <div class="buttons">
         <button class="c-button" @click="handleFormat">格式化</button>
         <button class="c-button" @click="handleCompress">压缩</button>
+        <button class="c-button" @click="handleOpenFile">打开XML文件</button>
       </div>
       <div class="github-button c-button" @click="jumpToGitHubPage">
         <img src="https://github.githubassets.com/apple-touch-icon-144x144.png" alt="github icon" />
@@ -66,6 +126,8 @@ function jumpToGitHubPage() {
     <main>
       <div id="editor"></div>
     </main>
+
+    <input type="file" accept=".xml" ref="fileInputRef" @change="handleFileChange" hidden />
   </div>
 </template>
 
